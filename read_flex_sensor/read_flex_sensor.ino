@@ -1,45 +1,51 @@
-// Pin Definitions
-const int FLEX_PIN = A0; // Use GPIO34 for ESP32
+// Connect the voltage-divider output to GPIO34.
+const int FLEX_PIN = 34;
 
-// Circuit Constants
-const float V_REF = 3.3;       
-const float R_FIXED = 50000.0; // 5k Ohm fixed resistor
-const int ADC_MAX = 4095;      // 10-bit for Uno, 4095 for ESP32 (12-bit)
+const float V_REF = 3.3;
+const float R_FIXED = 50000.0;  // 50k ohm fixed resistor
+const int ADC_MAX = 4095;      // ESP32 12-bit ADC
 
-// Calibration Constants (Measure these with your multiFelmeter!)
-const float R_FLAT = 105000.0;  // Resistance at 0 degrees
-const float R_BENT = 350000.0;  // Resistance at 90 degrees
+// Calibration values — adjust to your sensor.
+const float R_FLAT = 105000.0;
+const float R_BENT = 350000.0;
+
+// Wiring assumed:
+// 3.3V -> fixed resistor -> GPIO34 -> flex sensor -> GND
 
 void setup() {
   Serial.begin(115200);
   pinMode(FLEX_PIN, INPUT);
-  analogReadResolution(12); // Standardize to 10-bit if using ESP32
+  analogReadResolution(12);
 }
 
 void loop() {
   int adc_raw = analogRead(FLEX_PIN);
-  
-  // Step 1: ADC to Voltage
   float v_out = adc_raw * (V_REF / ADC_MAX);
-  
-  // Prevent division by zero if sensor is disconnected
-  if (v_out >= V_REF) v_out = V_REF - 0.01; 
-  
-  // Step 2: Voltage to Resistance
-  float r_flex = R_FIXED * (v_out / (V_REF - v_out));
-  
-  // Step 3: Resistance to Angle
-  float angle = (r_flex - R_FLAT) * (90.0 / (R_BENT - R_FLAT));
-  
-  // Constrain angle to physical limits
-  angle = constrain(angle, 0.0, 90.0);
-  
-  Serial.print("Output voltage");
-  Serial.print(v_out);
-  Serial.print("Resistance: ");
-  Serial.print(r_flex);
-  Serial.print(" ohms | Angle: ");
-  Serial.println(angle);
-  
-  delay(50);
+
+  Serial.print("Time: ");
+  Serial.print(millis());
+  Serial.print(" ms | ADC: ");
+  Serial.print(adc_raw);
+  Serial.print(" | Voltage: ");
+  Serial.print(v_out, 3);
+  Serial.print(" V");
+
+  if (adc_raw >= ADC_MAX) {
+    Serial.println(" | Status: SATURATED_HIGH — check wiring");
+  } else {
+    float r_flex = R_FIXED * v_out / (V_REF - v_out);
+
+    float angle =
+        (r_flex - R_FLAT) * 90.0 / (R_BENT - R_FLAT);
+    angle = constrain(angle, 0.0, 90.0);
+
+    Serial.print(" | Resistance: ");
+    Serial.print(r_flex, 0);
+    Serial.print(" ohms | Angle: ");
+    Serial.print(angle, 1);
+    
+    Serial.println(" degrees");
+  }
+
+  delay(250);
 }
