@@ -1,0 +1,3 @@
+﻿ESP32 recording | COM8 | 115200 baud
+Started: 2026-10-14T23:19:08.7841106-07:00
+
