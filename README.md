@@ -1,3 +1,3 @@
-// Use this command .\save-data.ps1 -NoWindow to save the  
-// output continuously to a text file when you want it to stop 
-// press ctrl + c and it will save automatically
+// Run's code and continuously save it to a text file: .\save-data.ps1 -NoWindow 
+
+
