@@ -1,0 +1,16 @@
+﻿ESP32 recording | COM8 | 115200 baud
+Started: 2026-10-14T22:57:50.0372769-07:00
+
+[2026-10-14T22:57:50.3952572-07:00] Time: 1059989 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:50.6319737-07:00] Time: 1060240 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:50.9046403-07:00] Time: 1060491 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:51.1219119-07:00] Time: 1060742 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:51.3951543-07:00] Time: 1060993 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:51.6332574-07:00] Time: 1061244 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:51.8865455-07:00] Time: 1061495 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:52.1270394-07:00] Time: 1061746 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:52.3779588-07:00] Time: 1061997 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:52.6314772-07:00] Time: 1062248 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+[2026-10-14T22:57:52.8879315-07:00] Time: 1062499 ms | ADC: 4095 / 4095 | Voltage: 3.139 V | Resistance: NA | Angle: NA | Status: SATURATED_HIGH
+
+Stopped: 2026-10-14T22:57:53.0671891-07:00 | Readings saved: 11
