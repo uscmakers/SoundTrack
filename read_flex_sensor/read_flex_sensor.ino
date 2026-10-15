@@ -3,7 +3,7 @@ const int FLEX_PIN = A0; // Use GPIO34 for ESP32
 
 // Circuit Constants
 const float V_REF = 3.3;       
-const float R_FIXED = 100000.0; // 10k Ohm fixed resistor
+const float R_FIXED = 50000.0; // 5k Ohm fixed resistor
 const int ADC_MAX = 4095;      // 10-bit for Uno, 4095 for ESP32 (12-bit)
 
 // Calibration Constants (Measure these with your multiFelmeter!)
@@ -13,7 +13,7 @@ const float R_BENT = 350000.0;  // Resistance at 90 degrees
 void setup() {
   Serial.begin(115200);
   pinMode(FLEX_PIN, INPUT);
-  analogReadResolution(10); // Standardize to 10-bit if using ESP32
+  analogReadResolution(12); // Standardize to 10-bit if using ESP32
 }
 
 void loop() {
